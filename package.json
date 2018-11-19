@@ -1,0 +1,52 @@
+{
+  "name": "implements-interface",
+  "version": "0.0.1",
+  "description": "Tests whether an object has the same methods and signatures defined by a prototype.",
+  "module": "src/implementsInterface.js",
+  "main": "lib/implementsInterface.js",
+  "scripts": {
+    "test": "jest",
+    "build": "babel src --out-dir lib --ignore '**/*.test.js'",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerdo/implements-interface.git"
+  },
+  "keywords": [
+    "implements",
+    "interface",
+    "test",
+    "tdd"
+  ],
+  "files": [
+    "lib"
+  ],
+  "author": "Dannel Albert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nerdo/implements-interface/issues"
+  },
+  "homepage": "https://github.com/nerdo/implements-interface#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babylon": "^6.18.0",
+    "jest": "^23.6.0"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "test"
+    ],
+    "ignore": [
+      "node_modules/**"
+    ],
+    "envs": [
+      "jest"
+    ]
+  }
+}
