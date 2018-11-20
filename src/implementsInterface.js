@@ -37,8 +37,6 @@ export function implementsInterface (object, Interface) {
     const interfaceArgumentNames = [].concat(actualInterfaceArgumentNames)
     const objectArgumentNames = [].concat(actualObjectArgumentNames)
 
-    console.log(interfaceArgumentNames, objectArgumentNames)
-
     // Ensure length of both arrays are the same.
     while (interfaceArgumentNames.length < objectArgumentNames.length) {
       interfaceArgumentNames.push(void 0)
