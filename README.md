@@ -2,6 +2,11 @@
 
 A function that tests whether or not an object implements an interface defined by a prototype.
 
+There are some important caveats. It does _not_ work reliably when testing against functions that evaluate to:
+
+* Native functions: As far as I know, it isn't possible to get the arguments from a native function so always return an empty set. Depending on whether your interface method has arguments or not, you will either get a false positive or a false negative.
+* Bound functions: If you bind a function, e.g. `const bar = foo.bind(this)`, the returned function (in this case, `bar`) turns out to be native and has the same drawbacks.
+
 ## Installing
 
 ```
