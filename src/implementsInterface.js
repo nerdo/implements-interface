@@ -24,8 +24,9 @@ export function implementsInterface (object, Interface) {
 
   if (missingMethodNamesOnObject.length > 0) {
     const missingMethodsString = `${missingMethodNamesOnObject.join(', ')}`
+    const objectDescription = object.constructor ? `${object.constructor.name} ` : ''
     throw new Error(
-      `object does not implement ${Interface.name} because it is missing the following methods: ${missingMethodsString}.`
+      `${objectDescription}object does not implement ${Interface.name} because it is missing the following methods: ${missingMethodsString}.`
     )
   }
 
