@@ -10,7 +10,7 @@ const maybe = x => x || {} // optionals support
  */
 export function getArguments (func) {
   // eslint-disable-next-line quotes
-  const sourceCode = `(${"\n"}${func.toString().replace(/\{.*/s, '{ }')}${"\n"})`
+  const sourceCode = `(${"\n"}${func.toString().replace(/^(?!function )/, 'function ').replace(/\{.*/s, '{ }')}${"\n"})`
   const ast = parse(sourceCode)
 
   return ast

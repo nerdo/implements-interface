@@ -3,8 +3,28 @@
 import { getArguments } from './getArguments'
 
 describe('getArguments', () => {
+  describe('function toString() variations', () => {
+    test('normal signature', () => {
+      const fn = { toString: () => 'function foo (a, b, c) { }' }
+
+      const result = getArguments(fn)
+
+      expect(result).toBeDefined()
+      expect(result).toEqual(['a', 'b', 'c'])
+    })
+
+    test('without function keyword', () => {
+      const fn = { toString: () => 'foo (a, b, c) { }' }
+
+      const result = getArguments(fn)
+
+      expect(result).toBeDefined()
+      expect(result).toEqual(['a', 'b', 'c'])
+    })
+  })
+
   test('a normal function', () => {
-    const fn = function(a, b, c) { }
+    const fn = function (a, b, c) { }
 
     const result = getArguments(fn)
 
