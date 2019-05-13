@@ -9,8 +9,11 @@ const maybe = x => x || {} // optionals support
  * @returns {Array}
  */
 export function getArguments (func) {
-  // eslint-disable-next-line quotes
-  const sourceCode = `(${"\n"}${func.toString().replace(/^(?!function )/, 'function ').replace(/\{.*/s, '{ }')}${"\n"})`
+  const sanitizedToString = func
+    .toString()
+    .replace(/(?<!function)(?:\s+|^)([a-zA-Z0-9_]+)(?<!function)\s*(?=\()/, ' function $1 ')
+    .replace(/\{\s*\[native code\]\s*\}\s*$/, '{ }')
+  const sourceCode = `(${'\n'}${sanitizedToString}${'\n'})`
   const ast = parse(sourceCode)
 
   return ast
