@@ -1,6 +1,6 @@
 {
   "name": "implements-interface",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Tests whether an object has the same methods and signatures defined by a prototype.",
   "module": "src/implementsInterface.js",
   "main": "lib/implementsInterface.js",
