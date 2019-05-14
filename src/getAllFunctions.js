@@ -4,6 +4,7 @@
  * @param {Object} obj
  * @returns {Array}
  */
+const excludeProperties = ['arguments', 'caller', 'callee']
 export function getAllFunctions (obj) {
   let props = []
 
@@ -15,5 +16,6 @@ export function getAllFunctions (obj) {
 
   return props
     .sort() // sorted for unique filter (e !== arr[i + 1]) below
+    .filter(p => !excludeProperties.includes(p))
     .filter((e, i, arr) => e !== arr[i + 1] && typeof obj[e] === 'function')
 }
